@@ -21,8 +21,10 @@
           </v-card>
         </v-col>
       </v-row>
+      <v-row>
+       <v-btn color="primary" rounded>Add Page</v-btn>
+      </v-row>
     </v-col>
-    <v-btn color="primary" rounded>Add Page</v-btn>
   </v-row>
 </template>
 
