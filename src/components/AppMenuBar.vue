@@ -70,6 +70,9 @@ export default {
       { title: 'Edit >', action: '' },
       { title: 'Search', action: '' },
       { isDivider: true },
+      { title: 'Minimize', action: '' },
+      { title: 'Maximize', action: '' },
+      { isDivider: true },
       { title: 'Quit', action: '' }
     ]
   })

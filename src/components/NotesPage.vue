@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-textarea value="Add some notes here..."></v-textarea>
+    <v-textarea value="Add some notes here..." solo></v-textarea>
   </div>
 </template>
 

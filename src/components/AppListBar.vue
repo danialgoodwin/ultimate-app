@@ -1,42 +1,11 @@
 <template>
   <v-navigation-drawer app expand-on-hover>
     <v-list>
-      <v-list-item @click="goToTextEditor()">
+      <v-list-item v-for="(item, index) in appItems" :key="index" @click="asdf" link>
         <v-list-item-action>
-          <v-icon>fas fa-file-alt</v-icon>
+          <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-action>
-      </v-list-item>
-      <v-list-item @click="goToBrowser()">
-        <v-list-item-action>
-          <v-icon>fab fa-chrome</v-icon>
-        </v-list-item-action>
-      </v-list-item>
-      <v-list-item @click="goToNotes()">
-        <v-list-item-action>
-          <v-icon>fas fa-sticky-note</v-icon>
-        </v-list-item-action>
-      </v-list-item>
-      <v-list-item @click="goToHome()">
-        <v-list-item-action>
-          <v-icon>fas fa-home</v-icon>
-        </v-list-item-action>
-      </v-list-item>
-      <v-list-item @click="goToCalendar()">
-        <v-list-item-action>
-          <v-icon>fas fa-calendar-alt</v-icon>
-        </v-list-item-action>
-      </v-list-item>
-      <v-list-item @click="goToSocial()">
-        <v-list-item-action>
-          <v-icon>fas fa-comments</v-icon>
-        </v-list-item-action>
-      </v-list-item>
-      <v-spacer/>
-      <v-divider/>
-      <v-list-item @click="goToSocial()">
-        <v-list-item-action>
-          <v-icon>fas fa-cog</v-icon>
-        </v-list-item-action>
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -44,7 +13,19 @@
 
 <script>
 export default {
-  name: 'AppListBar'
+  name: 'AppListBar',
+  data: () => ({
+    appItems: [
+      { title: 'Text Editor', icon: 'fas fa-file-alt', action: 'goToTextEditor' },
+      { title: 'Browser', icon: 'fab fa-chrome', action: 'goToBrowser' },
+      { title: 'Notes', icon: 'fas fa-sticky-note', action: 'goToNotes' },
+      { title: 'Home', icon: 'fas fa-home', action: 'goToHome' },
+      { title: 'Calendar', icon: 'fas fa-calendar-alt', action: 'goToCalendar' },
+      { title: 'Social', icon: 'fas fa-comments', action: 'goToSocial' },
+      { isDivider: true },
+      { title: 'Settings', icon: 'fas fa-cog', action: 'goToSettings' }
+    ]
+  })
 }
 </script>
 
