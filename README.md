@@ -39,7 +39,20 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Menus should appear 'on-hover'. Reason: The next most likely action will be opening the menu, and we can save that click.
 
 
+# Decisions
+## Naming
+- Bars:
+    - ActionBar: Contains actions for a single app
+    - AppBar: Contains apps for the OS
+    - StatusBar: Contains status for a single app
+    - MenuApp: Contains menu for a single app
+
+## Removed features (at least for now)
+- IdePage. Reason: Most actions can go into TextEditorPage, and there is plenty else to do.
+- MediaPage. Reason: Not interested now, and don't really have a great idea for it yet.
+
 # TODO
 - Check Notepad++ for ideas on menu placement and splitting windows/tabs
     - Also, maybe check VS Code
 - The selected tab should have the same color as the top border color of the focused window
+

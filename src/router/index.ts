@@ -13,6 +13,7 @@ import TextEditorPage from '@/views/TextEditorPage.vue'
 
 Vue.use(VueRouter)
 
+// TODO: Eventually lazy load routes: https://router.vuejs.org/guide/advanced/lazy-loading.html#grouping-components-in-the-same-chunk
 const routes = [
   { path: '/', name: 'Home', component: HomePage },
   // route level code-splitting

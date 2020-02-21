@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import AppListBar from '@/components/os/AppListBar.vue'
-import AppMenuBar from '@/components/os/AppMenuBar.vue'
+import AppListBar from '@/components/os/AppBar.vue'
+import AppMenuBar from '@/components/os/MenuBar.vue'
 
 export default Vue.extend({
   name: 'App',
