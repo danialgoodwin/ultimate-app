@@ -7,9 +7,12 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item v-for="(item, index) in osMenuItems" :key="index" @click="asdf">
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
+        <template v-for="(item, index) in osMenuItems">
+          <v-divider v-if='item.isDivider' :key="index" />
+          <v-list-item v-else :key="index" @click="doSomething">
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </template>
       </v-list>
     </v-menu>
     <v-menu offset-y open-on-hover transition="scale-transition">
@@ -19,9 +22,12 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item v-for="(item, index) in appMenuItems" :key="index" @click="asdf">
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
+        <template v-for="(item, index) in appMenuItems">
+          <v-divider v-if='item.isDivider' :key="index" />
+          <v-list-item v-else :key="index" @click="doSomething">
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </template>
       </v-list>
     </v-menu>
     <v-spacer />
@@ -52,11 +58,12 @@ export default {
   data: () => ({
     osMenuItems: [
       { title: 'Apps >', action: '' },
-      { title: 'Settings >', action: 'goToSettings' },
       { title: 'Text Editor', action: 'goToTextEditor' },
       { title: 'Notes', action: 'goToNotes' },
       { title: 'Browser', action: 'goToBrowser' },
       { title: 'Email', action: 'goToEmail' },
+      { isDivider: true },
+      { title: 'Settings', action: 'goToSettings' },
       { isDivider: true },
       { title: 'Change Profile...', action: 'osChangeProfile' },
       { title: 'Sign Out', action: 'osSignOut' }
@@ -75,7 +82,12 @@ export default {
       { isDivider: true },
       { title: 'Quit', action: '' }
     ]
-  })
+  }),
+  methods: {
+    doSomething: () => {
+      console.log('doSomething()')
+    }
+  }
 }
 </script>
 

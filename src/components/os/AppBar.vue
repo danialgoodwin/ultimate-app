@@ -1,29 +1,35 @@
 <template>
-  <v-menu v-model="isAppBarMenuVisibleModel">
-    <template v-slot:activator="{ on }">
-      <v-navigation-drawer app expand-on-hover @click.right.exact="showAppBarMenu" @on="on">
+  <div>
+    <v-navigation-drawer app mini-variant>
+      <div @click.right.exact="showAppBarMenu">
         <v-list>
-          <v-list-item v-for="(item, index) in appItems" :key="index" @click="asdf" link>
-            <router-link :to='"/" + item.route'>
-              <v-list-item-action>
-                <v-icon>{{ item.icon }}</v-icon>
-              </v-list-item-action>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </router-link>
-          </v-list-item>
+          <v-tooltip right v-for="(item, index) in appItems" :key="index">
+            <template v-slot:activator="{ on }">
+              <v-list-item v-on="on">
+                <router-link :to='"/" + item.route'>
+                  <v-list-item-action>
+                    <v-icon>{{ item.icon }}</v-icon>
+                  </v-list-item-action>
+                </router-link>
+              </v-list-item>
+            </template>
+            <span>{{ item.title }}</span>
+          </v-tooltip>
         </v-list>
-      </v-navigation-drawer>
-    </template>
-    <v-list>
-      <v-list-item v-for="(item, index) in menuItems" :key="index" @click="TODO">
-        <v-list-item-title>{{ item.title }}</v-list-item-title>
-      </v-list-item>
-    </v-list>
-  </v-menu>
+      </div>
+    </v-navigation-drawer>
+    <v-menu v-model="isAppBarMenuVisibleModel" :position-x="x" :position-y="y" absolute offset-x
+            :close-on-content-click="false">
+      <v-list>
+        <v-list-item v-for="(item, index) in menuItems" :key="index" @click="doSomething">
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+  </div>
 </template>
 
 <script>
-let isAppBarMenuVisible = false
 
 export default {
   name: 'AppListBar',
@@ -36,22 +42,28 @@ export default {
       { title: 'Home', icon: 'fas fa-home', route: 'home' },
       { title: 'Calendar', icon: 'fas fa-calendar-alt', route: 'calendar' },
       { title: 'Social', icon: 'fas fa-comments', route: 'social' },
-      { title: 'All Apps', icon: 'fas fa-th', route: 'all' },
-      { isDivider: true },
-      { title: 'Settings', icon: 'fas fa-cog', route: 'settings' }
+      { title: 'All Apps', icon: 'fas fa-th', route: 'all' }
     ],
-    isAppBarMenuVisibleModel: isAppBarMenuVisible,
+    isAppBarMenuVisibleModel: false,
     menuItems: [
       { title: 'Auto-expand', view: '' },
-      { title: 'Dense', view: '' },
-      { title: '', view: '' }
-    ]
+      { title: 'Dense', view: '' }
+    ],
+    x: 0,
+    y: 0
   }),
-  calculated: {
-  },
   methods: {
-    showAppBarMenu: () => {
-      isAppBarMenuVisible = !isAppBarMenuVisible
+    doSomething: () => {
+      console.log('doSomething()')
+    },
+    showAppBarMenu (e) {
+      e.preventDefault()
+      this.isAppBarMenuVisibleModel = false
+      this.x = e.clientX
+      this.y = e.clientY
+      this.$nextTick(() => {
+        this.isAppBarMenuVisibleModel = true
+      })
     }
   }
 }
