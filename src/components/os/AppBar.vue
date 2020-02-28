@@ -1,19 +1,22 @@
 <template>
   <div>
     <v-navigation-drawer app mini-variant>
-      <div @click.right.exact="showAppBarMenu">
-        <v-list>
+      <div @click.right.exact="showAppBarRightClickMenu">
+        <v-list active-class="highlighted">
           <v-tooltip right v-for="(item, index) in appItems" :key="index">
             <template v-slot:activator="{ on }">
-              <v-list-item v-on="on">
-                <router-link :to='"/" + item.route'>
+              <v-list-item v-on="on" class="selected-app">
+                <router-link :to='item.route'>
                   <v-list-item-action>
                     <v-icon>{{ item.icon }}</v-icon>
                   </v-list-item-action>
                 </router-link>
               </v-list-item>
             </template>
-            <span>{{ item.title }}</span>
+            <span>
+              <span>{{ item.title }}</span>
+              <span v-if="$router.currentRoute.path === item.route"> (selected)</span>
+            </span>
           </v-tooltip>
         </v-list>
       </div>
@@ -36,13 +39,13 @@ export default {
   data: () => ({
     appItems: [
       // Reference: https://fontawesome.com/icons?d=gallery
-      { title: 'Text Editor', icon: 'fas fa-file-alt', route: 'text' },
-      { title: 'Browser', icon: 'fab fa-chrome', route: 'browser' },
-      { title: 'Notes', icon: 'fas fa-sticky-note', route: 'notes' },
-      { title: 'Home', icon: 'fas fa-home', route: 'home' },
-      { title: 'Calendar', icon: 'fas fa-calendar-alt', route: 'calendar' },
-      { title: 'Social', icon: 'fas fa-comments', route: 'social' },
-      { title: 'All Apps', icon: 'fas fa-th', route: 'all' }
+      { title: 'Text Editor', icon: 'fas fa-file-alt', route: '/text' },
+      { title: 'Browser', icon: 'fab fa-chrome', route: '/browser' },
+      { title: 'Notes', icon: 'fas fa-sticky-note', route: '/notes' },
+      { title: 'Home', icon: 'fas fa-home', route: '/home' },
+      { title: 'Calendar', icon: 'fas fa-calendar-alt', route: '/calendar' },
+      { title: 'Social', icon: 'fas fa-comments', route: '/social' },
+      { title: 'All Apps', icon: 'fas fa-th', route: '/all' }
     ],
     isAppBarMenuVisibleModel: false,
     menuItems: [
@@ -56,7 +59,7 @@ export default {
     doSomething: () => {
       console.log('doSomething()')
     },
-    showAppBarMenu (e) {
+    showAppBarRightClickMenu (e) {
       e.preventDefault()
       this.isAppBarMenuVisibleModel = false
       this.x = e.clientX
@@ -70,5 +73,7 @@ export default {
 </script>
 
 <style scoped>
-
+.selected-app {
+  border-right: 6px solid orange;
+}
 </style>

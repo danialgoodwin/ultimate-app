@@ -33,7 +33,8 @@
     <v-spacer />
     <span>File: /users/dan/workspace-npm/ultimate-app</span>
     <v-spacer />
-    <span>Playing: Bad Romance by Lady Gaga (<a>lyrics</a>)</span>
+    <span>Playing: Moonlight Sonata by Beethoven</span>
+    <!--    <span>Playing: Bad Romance by Lady Gaga (<a>lyrics</a>)</span>-->
     <v-spacer />
     <v-icon>fas fa-wifi</v-icon>
     <v-icon>fas fa-battery-full</v-icon>

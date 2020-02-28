@@ -21,7 +21,7 @@
       </v-col>
     </v-row>
     <v-row>
-     <v-btn color="primary" rounded>Add Page</v-btn>
+     <v-btn color="primary" rounded>Add App</v-btn>
     </v-row>
   </v-col>
 </template>
