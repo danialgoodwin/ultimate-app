@@ -4,13 +4,15 @@
       <v-text-field name="search" label="Search" prepend-inner-icon="fas fa-search" solo flat hide-details></v-text-field>
       <v-list>
         <v-subheader>Pages</v-subheader>
+        <v-btn color="primary" rounded>Add Page</v-btn>
         <template v-for="(item, index) in pages">
-          <v-list-item :key="index" @click="doSomething">
+          <v-divider v-if='item.isDivider' :key="index" />
+          <v-list-item v-else :key="index" @click="doSomething">
+            <v-list-item-action v-if='item.icon'><v-icon>{{ item.icon }}</v-icon></v-list-item-action>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </template>
       </v-list>
-      <v-btn color="primary" rounded>Add Page</v-btn>
     </v-col>
     <v-col cols="12" sm="8" md="9" lg="10">
       <v-row>
@@ -39,7 +41,14 @@ export default {
       { title: 'Secrets', action: 'goToTextEditor' },
       { title: 'Family', action: 'goToNotes' },
       { title: 'Other', action: 'osChangeProfile' },
-      { title: 'TODOs', action: 'osSignOut' }
+      { title: 'TODOs', action: 'osSignOut' },
+      { isDivider: true },
+      { title: 'Settings', icon: 'fas fa-cog', action: 'showSettings' },
+      { title: 'Trash', icon: 'fas fa-trash-alt', action: 'showTrash' },
+      { title: 'Shortcuts', icon: 'fas fa-keyboard', action: 'showKeyboardShortcuts' }
+    ],
+    actions: [
+
     ]
   }),
   methods: {
