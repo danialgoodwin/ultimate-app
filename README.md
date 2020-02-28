@@ -37,7 +37,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # Thoughts
 - Apps don't need to say their name. Reason: It should be obvious based on context.
 - Menus should appear 'on-hover'. Reason: The next most likely action will be opening the menu, and we can save that click.
-
+- I don't always need to see all the tabs I have open. Maybe only one for the current song title and artist, or that could be put in the status bar, or it could be a temporary (5 sec?) small popup
+- I don't always need to see the URL and action buttons, but it will likely be good to see the ____
 
 # Decisions
 ## Naming
