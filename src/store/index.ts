@@ -5,6 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    texteditor: {},
+    browser: {},
+    notes: {},
+    home: {},
+    calendar: {},
+    social: {},
+    system: {}
   },
   mutations: {
   },
