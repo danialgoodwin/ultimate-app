@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <app-menu-bar/>
+    <app-menu-bar />
+    <!--<app-menu-bar v-if='{this.$router.currentRoute.showBreadcrumbs}'/>-->
     <app-list-bar/>
     <v-content>
       <v-container>
