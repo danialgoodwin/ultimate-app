@@ -5,7 +5,7 @@
         <v-list active-class="highlighted">
           <v-tooltip right v-for="(item, index) in appItems" :key="index">
             <template v-slot:activator="{ on }">
-              <v-list-item v-on="on" class="selected-app">
+              <v-list-item v-on="on" :class="$router.currentRoute.path === item.route ? 'selected-app' : ''">
                 <router-link :to='item.route'>
                   <v-list-item-action>
                     <v-icon>{{ item.icon }}</v-icon>
@@ -75,5 +75,6 @@ export default {
 <style scoped>
 .selected-app {
   border-right: 6px solid orange;
+  background: lightgray;
 }
 </style>
