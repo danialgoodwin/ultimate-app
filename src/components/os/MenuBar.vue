@@ -36,8 +36,8 @@
     <span>Playing: Moonlight Sonata by Beethoven</span>
     <!--    <span>Playing: Bad Romance by Lady Gaga (<a>lyrics</a>)</span>-->
     <v-spacer />
-    <v-icon>fas fa-wifi</v-icon>
-    <v-icon>fas fa-battery-full</v-icon>
+    <v-icon>{{ iconWifi }}</v-icon>
+    <v-icon>{{ iconBatteryFull }}</v-icon>
 
     <v-menu :close-on-content-click="false" offset-y>
       <template v-slot:activator="{ on }">
@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import * as icons from '@/utils/icons'
+
 export default {
   name: 'AppMenuBar',
   data: () => ({
@@ -86,7 +88,9 @@ export default {
       { title: 'Maximize', action: '' },
       { isDivider: true },
       { title: 'Quit', action: '' }
-    ]
+    ],
+    iconBatteryFull: icons.batteryFull,
+    iconWifi: icons.wifi
   }),
   methods: {
     doSomething: () => {

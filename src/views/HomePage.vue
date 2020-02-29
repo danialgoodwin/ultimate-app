@@ -2,21 +2,27 @@
   <v-col>
     <v-row>
       <v-col cols="12" sm="4">
-        <v-card outlined>
-          <v-card-title>TODO</v-card-title>
-          <v-card-actions>
-            <v-btn icon><v-icon>fas fa-bars</v-icon></v-btn>
-          </v-card-actions>
-          <todo-page class="pa-2" />
+        <v-card class='pa-2' outlined>
+          <v-row>
+            <v-card-title>TODO</v-card-title>
+            <v-spacer></v-spacer>
+            <v-card-actions>
+              <v-btn icon><v-icon>{{ iconMenu }}</v-icon></v-btn>
+            </v-card-actions>
+          </v-row>
+          <todo-page />
         </v-card>
       </v-col>
       <v-col cols="12" sm="8">
-        <v-card outlined>
+        <v-card class='pa-2' outlined>
+          <v-row>
           <v-card-title>Notes</v-card-title>
+          <v-spacer></v-spacer>
           <v-card-actions>
-            <v-btn icon><v-icon>fas fa-bars</v-icon></v-btn>
+            <v-btn icon><v-icon>{{ iconMenu }}</v-icon></v-btn>
           </v-card-actions>
-          <notes-page class="pa-2" />
+          </v-row>
+          <notes-page />
         </v-card>
       </v-col>
     </v-row>
@@ -30,11 +36,15 @@
 import Vue from 'vue'
 import TodoPage from '@/components/TodoPage.vue'
 import NotesPage from '@/views/NotesPage.vue'
+import * as icons from '@/utils/icons'
 
 export default Vue.extend({
   name: 'HomePage',
   components: { NotesPage, TodoPage },
-  data: () => ({
-  })
+  data: () => {
+    return {
+      iconMenu: icons.menu
+    }
+  }
 })
 </script>

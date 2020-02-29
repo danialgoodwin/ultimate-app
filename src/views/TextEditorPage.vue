@@ -4,7 +4,7 @@
       <v-toolbar-title><v-text-field v-model="titleModel" hide-details placeholder='Untitled'></v-text-field></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn icon><v-icon>fas fa-bars</v-icon></v-btn>
+        <v-btn icon><v-icon>{{ iconMenu }}</v-icon></v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <div>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import * as icons from '@/utils/icons'
+
 export default {
   name: 'TextEditorPage',
   props: {
@@ -34,7 +36,8 @@ export default {
   data: () => {
     return {
       titleModel: '',
-      contentModel: ''
+      contentModel: '',
+      iconMenu: icons.menu
     }
   },
   watch: {

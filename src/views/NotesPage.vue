@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="12" sm="4" md="3" lg="2">
-      <v-text-field name="search" label="Search" prepend-inner-icon="fas fa-search" solo flat
+      <v-text-field name="search" label="Search" :prepend-inner-icon="iconSearch" solo flat
                     hide-details></v-text-field>
       <v-list>
         <v-subheader>Pages</v-subheader>
@@ -35,6 +35,11 @@
 
 <script>
 import NotesCard from '@/components/NotesCard'
+import * as icons from '@/utils/icons'
+
+const iconKeyboard = icons.keyboard
+const iconSettings = icons.settings
+const iconTrash = icons.trash
 
 export default {
   name: 'NotesPage',
@@ -64,21 +69,22 @@ export default {
       { isDivider: true },
       {
         title: 'Settings',
-        icon: 'fas fa-cog',
+        icon: iconSettings,
         action: 'showSettings'
       },
       {
         title: 'Trash',
-        icon: 'fas fa-trash-alt',
+        icon: iconTrash,
         action: 'showTrash'
       },
       {
         title: 'Shortcuts',
-        icon: 'fas fa-keyboard',
+        icon: iconKeyboard,
         action: 'showKeyboardShortcuts'
       }
     ],
-    actions: []
+    actions: [],
+    iconSearch: icons.search
   }),
   methods: {
     doSomething: () => {

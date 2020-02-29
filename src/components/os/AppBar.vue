@@ -38,6 +38,7 @@
 
 <script>
 import { routerMixins } from '@/mixins/router-mixins'
+import * as icons from '@/utils/icons'
 
 export default {
   name: 'AppBar',
@@ -45,7 +46,7 @@ export default {
     appItems: [
       {
         title: 'Home',
-        icon: 'fas fa-home',
+        icon: icons.home,
         route: '/',
         action: () => {
           routerMixins.methods.goToHome()
@@ -53,7 +54,7 @@ export default {
       },
       {
         title: 'Notes',
-        icon: 'fas fa-sticky-note',
+        icon: icons.notes,
         route: '/notes',
         action: () => {
           routerMixins.methods.goToNotes()
@@ -61,7 +62,7 @@ export default {
       },
       {
         title: 'Text Editor',
-        icon: 'fas fa-file-alt',
+        icon: icons.textEditor,
         route: '/text',
         action: () => {
           routerMixins.methods.goToTextEditor()
@@ -69,7 +70,7 @@ export default {
       },
       {
         title: 'Browser',
-        icon: 'fab fa-chrome',
+        icon: icons.browser,
         route: '/browser',
         action: () => {
           routerMixins.methods.goToBrowser()
@@ -77,7 +78,7 @@ export default {
       },
       {
         title: 'Calendar',
-        icon: 'fas fa-calendar-alt',
+        icon: icons.calendar,
         route: '/calendar',
         action: () => {
           routerMixins.methods.goToCalendar()
@@ -85,7 +86,7 @@ export default {
       },
       {
         title: 'Social',
-        icon: 'fas fa-comments',
+        icon: icons.social,
         route: '/social',
         action: () => {
           routerMixins.methods.goToSocial()
@@ -93,7 +94,7 @@ export default {
       },
       {
         title: 'All Apps',
-        icon: 'fas fa-th',
+        icon: icons.allApps,
         route: '/all',
         action: () => {
           routerMixins.methods.goToAllApps()

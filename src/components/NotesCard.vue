@@ -26,7 +26,7 @@
         <v-spacer></v-spacer>
         <v-menu>
           <template v-slot:activator="{ on }">
-            <v-btn icon slot="activator" @click="doSomething" v-on="on"><v-icon>fas fa-bars</v-icon></v-btn>
+            <v-btn icon slot="activator" @click="doSomething" v-on="on"><v-icon>{{iconMenu}}</v-icon></v-btn>
           </template>
           <v-list>
             <v-list-item @click="doSomething"><v-list-item-title>Remove</v-list-item-title></v-list-item>
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import * as icons from '@/utils/icons'
+
 export default {
   name: 'NotesCard',
   props: {
@@ -55,7 +57,8 @@ export default {
     return {
       isEditMode: true,
       titleModel: '',
-      contentModel: ''
+      contentModel: '',
+      iconMenu: icons.menu
     }
   },
   watch: {
