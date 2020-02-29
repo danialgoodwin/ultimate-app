@@ -22,7 +22,6 @@ const routes = [
   { path: '/bookmarks', name: 'Bookmarks', component: BookmarksPage },
   { path: '/browser',   name: 'Browser',   component: BrowserPage },
   { path: '/calendar',  name: 'Calendar',  component: CalendarPage },
-  { path: '/home',      name: 'Home',      component: HomePage },
   { path: '/notes',     name: 'Notes',     component: NotesPage },
   { path: '/social',    name: 'Social',    component: SocialPage },
   { path: '/settings',  name: 'Settings',  component: SettingsPage },

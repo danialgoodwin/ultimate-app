@@ -5,7 +5,12 @@
         <v-list active-class="highlighted">
           <v-tooltip right v-for="(item, index) in appItems" :key="index">
             <template v-slot:activator="{ on }">
-              <v-list-item v-on="on" :class="$router.currentRoute.path === item.route ? 'selected-app' : ''">
+              <v-list-item
+                v-shortkey="['alt', index + 1]"
+                @shortkey='item.action()'
+                v-on="on"
+                :class="$router.currentRoute.path === item.route ? 'selected-app' : ''"
+              >
                 <router-link :to='item.route'>
                   <v-list-item-action>
                     <v-icon>{{ item.icon }}</v-icon>
@@ -33,19 +38,19 @@
 </template>
 
 <script>
+import { routerMixins } from '@/mixins/router-mixins'
 
 export default {
-  name: 'AppListBar',
+  name: 'AppBar',
   data: () => ({
     appItems: [
-      // Reference: https://fontawesome.com/icons?d=gallery
-      { title: 'Text Editor', icon: 'fas fa-file-alt', route: '/text' },
-      { title: 'Browser', icon: 'fab fa-chrome', route: '/browser' },
-      { title: 'Notes', icon: 'fas fa-sticky-note', route: '/notes' },
-      { title: 'Home', icon: 'fas fa-home', route: '/home' },
-      { title: 'Calendar', icon: 'fas fa-calendar-alt', route: '/calendar' },
-      { title: 'Social', icon: 'fas fa-comments', route: '/social' },
-      { title: 'All Apps', icon: 'fas fa-th', route: '/all' }
+      { title: 'Text Editor', icon: 'fas fa-file-alt', route: '/text', action: () => { routerMixins.methods.goToTextEditor() } },
+      { title: 'Browser', icon: 'fab fa-chrome', route: '/browser', action: () => { routerMixins.methods.goToBrowser() } },
+      { title: 'Notes', icon: 'fas fa-sticky-note', route: '/notes', action: () => { routerMixins.methods.goToNotes() } },
+      { title: 'Home', icon: 'fas fa-home', route: '/', action: () => { routerMixins.methods.goToHome() } },
+      { title: 'Calendar', icon: 'fas fa-calendar-alt', route: '/calendar', action: () => { routerMixins.methods.goToCalendar() } },
+      { title: 'Social', icon: 'fas fa-comments', route: '/social', action: () => { routerMixins.methods.goToSocial() } },
+      { title: 'All Apps', icon: 'fas fa-th', route: '/all', action: () => { routerMixins.methods.goToAllApps() } }
     ],
     isAppBarMenuVisibleModel: false,
     menuItems: [
@@ -58,6 +63,7 @@ export default {
   methods: {
     doSomething: () => {
       console.log('doSomething()')
+      routerMixins.methods.goToAllApps()
     },
     showAppBarRightClickMenu (e) {
       e.preventDefault()
@@ -75,6 +81,6 @@ export default {
 <style scoped>
 .selected-app {
   border-right: 6px solid orange;
-  background: lightgray;
+  background-color: lightgray;
 }
 </style>

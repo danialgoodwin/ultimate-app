@@ -7,6 +7,9 @@ import vuetify from './plugins/vuetify'
 
 import '@/assets/global.sass'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+Vue.use(require('vue-shortkey'))
+
 Vue.config.productionTip = false
 
 new Vue({
