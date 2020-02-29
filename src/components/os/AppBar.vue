@@ -3,26 +3,25 @@
     <v-navigation-drawer app mini-variant>
       <div @click.right.exact="showAppBarRightClickMenu">
         <v-list active-class="highlighted">
-          <v-tooltip right v-for="(item, index) in appItems" :key="index">
-            <template v-slot:activator="{ on }">
-              <v-list-item
-                v-shortkey="['alt', index + 1]"
-                @shortkey='item.action()'
-                v-on="on"
-                :class="$router.currentRoute.path === item.route ? 'selected-app' : ''"
-              >
-                <router-link :to='item.route'>
-                  <v-list-item-action>
-                    <v-icon>{{ item.icon }}</v-icon>
-                  </v-list-item-action>
-                </router-link>
-              </v-list-item>
-            </template>
-            <span>
-              <span>{{ item.title }}</span>
-              <span v-if="$router.currentRoute.path === item.route"> (selected)</span>
-            </span>
-          </v-tooltip>
+          <template v-for="(item, index) in appItems">
+            <v-tooltip right :key="index">
+              <template v-slot:activator="{ on }">
+                <v-list-item
+                  v-shortkey="['alt', index + 1]"
+                  @shortkey='item.action()'
+                  @click='item.action()'
+                  v-on="on"
+                  :class="$router.currentRoute.path === item.route ? 'selected-app' : ''"
+                >
+                  <v-list-item-action><v-icon>{{ item.icon }}</v-icon></v-list-item-action>
+                </v-list-item>
+              </template>
+              <span>
+                <span>{{ item.title }}</span>
+                <span> (Alt + {{ index + 1 }})</span>
+              </span>
+            </v-tooltip>
+          </template>
         </v-list>
       </div>
     </v-navigation-drawer>
@@ -44,22 +43,79 @@ export default {
   name: 'AppBar',
   data: () => ({
     appItems: [
-      { title: 'Text Editor', icon: 'fas fa-file-alt', route: '/text', action: () => { routerMixins.methods.goToTextEditor() } },
-      { title: 'Browser', icon: 'fab fa-chrome', route: '/browser', action: () => { routerMixins.methods.goToBrowser() } },
-      { title: 'Notes', icon: 'fas fa-sticky-note', route: '/notes', action: () => { routerMixins.methods.goToNotes() } },
-      { title: 'Home', icon: 'fas fa-home', route: '/', action: () => { routerMixins.methods.goToHome() } },
-      { title: 'Calendar', icon: 'fas fa-calendar-alt', route: '/calendar', action: () => { routerMixins.methods.goToCalendar() } },
-      { title: 'Social', icon: 'fas fa-comments', route: '/social', action: () => { routerMixins.methods.goToSocial() } },
-      { title: 'All Apps', icon: 'fas fa-th', route: '/all', action: () => { routerMixins.methods.goToAllApps() } }
+      {
+        title: 'Home',
+        icon: 'fas fa-home',
+        route: '/',
+        action: () => {
+          routerMixins.methods.goToHome()
+        }
+      },
+      {
+        title: 'Notes',
+        icon: 'fas fa-sticky-note',
+        route: '/notes',
+        action: () => {
+          routerMixins.methods.goToNotes()
+        }
+      },
+      {
+        title: 'Text Editor',
+        icon: 'fas fa-file-alt',
+        route: '/text',
+        action: () => {
+          routerMixins.methods.goToTextEditor()
+        }
+      },
+      {
+        title: 'Browser',
+        icon: 'fab fa-chrome',
+        route: '/browser',
+        action: () => {
+          routerMixins.methods.goToBrowser()
+        }
+      },
+      {
+        title: 'Calendar',
+        icon: 'fas fa-calendar-alt',
+        route: '/calendar',
+        action: () => {
+          routerMixins.methods.goToCalendar()
+        }
+      },
+      {
+        title: 'Social',
+        icon: 'fas fa-comments',
+        route: '/social',
+        action: () => {
+          routerMixins.methods.goToSocial()
+        }
+      },
+      {
+        title: 'All Apps',
+        icon: 'fas fa-th',
+        route: '/all',
+        action: () => {
+          routerMixins.methods.goToAllApps()
+        }
+      }
     ],
     isAppBarMenuVisibleModel: false,
     menuItems: [
-      { title: 'Auto-expand', view: '' },
-      { title: 'Dense', view: '' }
+      {
+        title: 'Auto-expand',
+        view: ''
+      },
+      {
+        title: 'Dense',
+        view: ''
+      }
     ],
     x: 0,
     y: 0
   }),
+  computed: {
+  },
   methods: {
     doSomething: () => {
       console.log('doSomething()')
@@ -79,8 +135,8 @@ export default {
 </script>
 
 <style scoped>
-.selected-app {
-  border-right: 6px solid orange;
-  background-color: lightgray;
-}
+  .selected-app {
+    border-right: 6px solid orange;
+    background-color: lightgray;
+  }
 </style>
