@@ -34,6 +34,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - System-wide identity and profiles.
 
 
+## Integrations
+- Firebase: https://console.firebase.google.com/project/ultimate-os-app/overview
+
+
 # Thoughts
 - Apps don't need to say their name. Reason: It should be obvious based on context.
 - Menus should appear 'on-hover'. Reason: The next most likely action will be opening the menu, and we can save that click.
