@@ -1,30 +1,25 @@
 <template>
-  <div>
+  <div @click.right.exact="showAppBarRightClickMenu">
     <v-navigation-drawer app mini-variant>
-      <div @click.right.exact="showAppBarRightClickMenu">
-        <v-list active-class="highlighted">
-          <template v-for="(item, index) in appItems">
-            <v-tooltip right :key="index">
-              <template v-slot:activator="{ on }">
-                <v-list-item v-shortkey="['alt', index + 1]" @shortkey='item.action()' @click='item.action()' v-on="on"
-                  :class="$router.currentRoute.path === item.route ? 'selected-app' : ''"
-                >
-                  <v-list-item-action><v-icon>{{ item.icon }}</v-icon></v-list-item-action>
-                </v-list-item>
-              </template>
-              <span>
-                <span>{{ item.title }}</span>
-                <span> (Alt + {{ index + 1 }})</span>
-              </span>
-            </v-tooltip>
-          </template>
-        </v-list>
-      </div>
+      <v-list active-class="highlighted">
+        <template v-for="(item, index) in appItems">
+          <v-tooltip right :key="index">
+            <template v-slot:activator="{ on }">
+              <v-list-item v-shortkey="['alt', index + 1]" @shortkey='item.action()' @click='item.action()' v-on="on"
+                :class="$router.currentRoute.path === item.route ? 'selected-app' : ''"
+              >
+                <v-list-item-icon><v-spacer/><v-icon>{{ item.icon }}</v-icon><v-spacer/></v-list-item-icon>
+              </v-list-item>
+            </template>
+            <span>{{ item.title }} (Alt + {{ index + 1 }})</span>
+          </v-tooltip>
+        </template>
+      </v-list>
     </v-navigation-drawer>
     <v-menu v-model="isAppBarMenuVisibleModel" :position-x="x" :position-y="y" absolute offset-x :close-on-content-click="false">
       <v-list>
-        <v-list-item v-for="(item, index) in menuItems" :key="index" @click="doSomething">
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        <v-list-item v-for="(menuItem, index) in menuItems" :key="index" @click="doSomething">
+          <v-list-item-title>{{ menuItem.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
