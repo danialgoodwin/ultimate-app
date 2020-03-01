@@ -6,8 +6,10 @@
           <template v-for="(item, index) in appItems">
             <v-tooltip right :key="index" transition="slide-x-transition" close-delay='100'>
               <template v-slot:activator="{ on }">
-                <v-list-item v-shortkey="['alt', index + 1]" @shortkey='item.action()' @click='item.action()' v-on="on">
+                <v-list-item v-shortkey="['alt', index + 1]" @shortkey='item.action()' @click='item.action()' v-on="on" :to='item.route' exact link>
                   <v-list-item-icon><v-spacer/><v-icon>{{ item.icon }}</v-icon><v-spacer/></v-list-item-icon>
+                  <!-- This empty 'v-list-item-content' is required to prevent the icon from moving when clicked -->
+                  <v-list-item-content></v-list-item-content>
                 </v-list-item>
               </template>
               <span>{{ item.title }} (Alt + {{ index + 1 }})</span>
@@ -16,7 +18,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-menu v-model="isAppBarMenuVisibleModel" :position-x="x" :position-y="y" absolute offset-x :close-on-content-click="false">
+    <v-menu v-model="isAppBarMenuVisibleModel" :position-x="x" :position-y="y" absolute offset-x>
       <v-list>
         <v-list-item v-for="(menuItem, index) in menuItems" :key="index" @click="doSomething">
           <v-list-item-title>{{ menuItem.title }}</v-list-item-title>

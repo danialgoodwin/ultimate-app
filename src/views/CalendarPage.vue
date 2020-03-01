@@ -11,7 +11,7 @@
     <v-list>
       <template v-for='(item, index) in eventItems'>
         <v-divider v-if='item.isDivider' :key="index" />
-        <v-menu v-else :key="index" close-on-content-click='false'>
+        <v-menu v-else :key="index" :close-on-content-click=false>
           <template v-slot:activator="{ on }">
             <v-list-item v-on="on">
               <v-list-item-title>{{ item.title }}</v-list-item-title>
