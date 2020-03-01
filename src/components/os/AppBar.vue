@@ -1,19 +1,19 @@
 <template>
   <div @click.right.exact="showAppBarRightClickMenu">
-    <v-navigation-drawer app mini-variant>
-      <v-list active-class="highlighted">
-        <template v-for="(item, index) in appItems">
-          <v-tooltip right :key="index">
-            <template v-slot:activator="{ on }">
-              <v-list-item v-shortkey="['alt', index + 1]" @shortkey='item.action()' @click='item.action()' v-on="on"
-                :class="$router.currentRoute.path === item.route ? 'selected-app' : ''"
-              >
-                <v-list-item-icon><v-spacer/><v-icon>{{ item.icon }}</v-icon><v-spacer/></v-list-item-icon>
-              </v-list-item>
-            </template>
-            <span>{{ item.title }} (Alt + {{ index + 1 }})</span>
-          </v-tooltip>
-        </template>
+    <v-navigation-drawer app mini-variant permanent>
+      <v-list>
+        <v-list-item-group mandatory max=1 active-class="selected-app">
+          <template v-for="(item, index) in appItems">
+            <v-tooltip right :key="index" transition="slide-x-transition" close-delay='100'>
+              <template v-slot:activator="{ on }">
+                <v-list-item v-shortkey="['alt', index + 1]" @shortkey='item.action()' @click='item.action()' v-on="on">
+                  <v-list-item-icon><v-spacer/><v-icon>{{ item.icon }}</v-icon><v-spacer/></v-list-item-icon>
+                </v-list-item>
+              </template>
+              <span>{{ item.title }} (Alt + {{ index + 1 }})</span>
+            </v-tooltip>
+          </template>
+        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
     <v-menu v-model="isAppBarMenuVisibleModel" :position-x="x" :position-y="y" absolute offset-x :close-on-content-click="false">
@@ -135,8 +135,7 @@ export default {
 </script>
 
 <style scoped>
-  .selected-app {
-    border-right: 6px solid orange;
-    background-color: lightgray;
-  }
+.selected-app {
+  border-right: 5px solid skyblue;
+}
 </style>
