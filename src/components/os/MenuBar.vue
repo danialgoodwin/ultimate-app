@@ -2,9 +2,7 @@
   <v-system-bar app window lights-out>
     <v-menu offset-y open-on-hover transition="scale-transition">
       <template v-slot:activator="{ on }">
-        <v-btn color="primary" v-on="on">
-          OS
-        </v-btn>
+        <v-btn color="secondary" v-on="on" text tile>OS</v-btn>
       </template>
       <v-list>
         <template v-for="(item, index) in osMenuItems">
@@ -17,9 +15,7 @@
     </v-menu>
     <v-menu offset-y open-on-hover transition="scale-transition">
       <template v-slot:activator="{ on }">
-        <v-btn color="primary" v-on="on">
-          App
-        </v-btn>
+        <v-btn color="secondary" v-on="on" text tile>App</v-btn>
       </template>
       <v-list>
         <template v-for="(item, index) in appMenuItems">
@@ -41,7 +37,7 @@
 
     <v-menu :close-on-content-click="false" offset-y>
       <template v-slot:activator="{ on }">
-        <div v-on="on">2020-02-16 3:14pm</div>
+        <div v-on="on">{{ currentDateTime }}</div>
       </template>
       <v-card>
         <v-row>
@@ -59,6 +55,7 @@
 
 <script>
 import * as icons from '@/utils/icons'
+import * as dateUtils from '@/utils/date-utils'
 
 export default {
   name: 'AppMenuBar',
@@ -90,12 +87,22 @@ export default {
       { title: 'Quit', action: '' }
     ],
     iconBatteryFull: icons.batteryFull,
-    iconWifi: icons.wifi
+    iconWifi: icons.wifi,
+    currentDateTime: ''
   }),
   methods: {
-    doSomething: () => {
+    doSomething () {
       console.log('doSomething()')
+    },
+    updateCurrentDateTime () {
+      this.currentDateTime = dateUtils.formatAsUserDateHourMinute(new Date())
     }
+  },
+  mounted () {
+    this.updateCurrentDateTime()
+    setInterval(() => {
+      this.updateCurrentDateTime()
+    }, 60 * 1000)
   }
 }
 </script>

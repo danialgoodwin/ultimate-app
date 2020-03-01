@@ -1,6 +1,7 @@
 <template>
   <v-col>
     <!-- Toolbar -->
+    <p>TODO: Add SRL (Spaced Repetition Learning) here</p>
   </v-col>
 </template>
 

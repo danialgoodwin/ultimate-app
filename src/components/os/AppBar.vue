@@ -17,6 +17,10 @@
           </template>
         </v-list-item-group>
       </v-list>
+
+      <template v-slot:append>
+
+      </template>
     </v-navigation-drawer>
     <v-menu v-model="isAppBarMenuVisibleModel" :position-x="x" :position-y="y" absolute offset-x>
       <v-list>
@@ -136,8 +140,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.selected-app {
-  border-right: 5px solid skyblue;
-}
+<style lang='sass' scoped>
+.selected-app
+  border-right: 5px solid #1E90FF // blue-dodger
 </style>

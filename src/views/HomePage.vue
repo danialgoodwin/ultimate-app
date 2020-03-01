@@ -27,7 +27,7 @@
       </v-col>
     </v-row>
     <v-row>
-     <v-btn color="primary" rounded>Add App</v-btn>
+      <dan-fab text='Add App' />
     </v-row>
   </v-col>
 </template>
@@ -37,10 +37,11 @@ import Vue from 'vue'
 import TodoPage from '@/components/TodoPage.vue'
 import NotesPage from '@/views/NotesPage.vue'
 import * as icons from '@/utils/icons'
+import DanFab from '@/components/dan-fab.vue'
 
 export default Vue.extend({
   name: 'HomePage',
-  components: { NotesPage, TodoPage },
+  components: { DanFab, NotesPage, TodoPage },
   data: () => {
     return {
       iconMenu: icons.menu

@@ -5,10 +5,12 @@ import HomePage from '@/views/HomePage.vue'
 import BookmarksPage from '@/views/BookmarksPage.vue'
 import BrowserPage from '@/views/BrowserPage.vue'
 import CalendarPage from '@/views/CalendarPage.vue'
+import GamesPage from '@/views/GamesPage.vue'
 import LearnPage from '@/views/LearnPage.vue'
 import NotesPage from '@/views/NotesPage.vue'
 // import SocialPage from '@/views/SocialPage.vue'
 import SettingsPage from '@/views/SettingsPage.vue'
+import ShortcutsPage from '@/views/ShortcutsPage.vue'
 import TerminalPage from '@/views/TerminalPage.vue'
 import TextEditorPage from '@/views/TextEditorPage.vue'
 
@@ -23,9 +25,11 @@ const routes = [
   { path: '/bookmarks', name: 'Bookmarks', component: BookmarksPage },
   { path: '/browser',   name: 'Browser',   component: BrowserPage },
   { path: '/calendar',  name: 'Calendar',  component: CalendarPage },
+  { path: '/games',     name: 'Games',     component: GamesPage },
   { path: '/learn',     name: 'Learn',     component: LearnPage },
   { path: '/notes',     name: 'Notes',     component: NotesPage },
   { path: '/settings',  name: 'Settings',  component: SettingsPage },
+  { path: '/shortcuts', name: 'Shortcuts', component: ShortcutsPage },
   // { path: '/social',    name: 'Social',    component: SocialPage },
   { path: '/terminal',  name: 'Terminal',  component: TerminalPage },
   { path: '/text',      name: 'Text',      component: TextEditorPage }

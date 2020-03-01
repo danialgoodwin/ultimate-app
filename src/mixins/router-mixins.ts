@@ -20,6 +20,9 @@ export const routerMixins = {
     goToNotes () {
       router.replace({ path: '/notes' })
     },
+    goToShortcuts () {
+      router.replace({ path: '/shortcuts' })
+    },
     goToSocial () {
       router.replace({ path: '/social' })
     },

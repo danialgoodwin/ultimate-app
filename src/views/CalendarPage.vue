@@ -6,7 +6,7 @@
     <br>
     <v-row>
       <h2>Events</h2>
-      <v-btn class='ml-8' color="primary" rounded >Add Event</v-btn>
+      <dan-fab class='ml-8' text='Add Event' />
     </v-row>
     <v-list>
       <template v-for='(item, index) in eventItems'>
@@ -29,9 +29,11 @@
 
 <script>
 import * as icons from '@/utils/icons'
+import DanFab from '@/components/dan-fab'
 
 export default {
   name: 'CalendarPage',
+  components: { DanFab },
   data: () => ({
     eventItems: [
       { title: '2020', action: '', details: '' },

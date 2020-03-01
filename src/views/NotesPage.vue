@@ -1,11 +1,9 @@
 <template>
   <v-row>
     <v-col cols="12" sm="4" md="3" lg="2">
-      <v-text-field name="search" label="Search" :prepend-inner-icon="iconSearch" solo flat
-                    hide-details></v-text-field>
+      <v-text-field name="search" label="Search" :prepend-inner-icon="iconSearch" solo flat hide-details></v-text-field>
       <v-list>
-        <v-subheader>Pages</v-subheader>
-        <v-btn color="primary" rounded>Add Page</v-btn>
+        <v-row><v-subheader>Pages<dan-fab class='ml-8' text='Add Page' /></v-subheader></v-row>
         <template v-for="(item, index) in pages">
           <v-divider v-if='item.isDivider' :key="index"/>
           <v-list-item v-else :key="index" @click="doSomething">
@@ -27,7 +25,7 @@
         <notes-card store-id='notes-card-6'/>
       </v-row>
       <v-row>
-        <v-btn class="ma-2" color="primary" rounded>Add Note</v-btn>
+        <dan-fab class="ma-2" text='Add Note' />
       </v-row>
     </v-col>
   </v-row>
@@ -36,6 +34,7 @@
 <script>
 import NotesCard from '@/components/NotesCard'
 import * as icons from '@/utils/icons'
+import DanFab from '@/components/dan-fab'
 
 const iconKeyboard = icons.keyboard
 const iconSettings = icons.settings
@@ -43,7 +42,7 @@ const iconTrash = icons.trash
 
 export default {
   name: 'NotesPage',
-  components: { NotesCard },
+  components: { DanFab, NotesCard },
   data: () => ({
     pages: [
       {
@@ -95,5 +94,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
