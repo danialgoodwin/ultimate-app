@@ -7,6 +7,9 @@
       <v-list>
         <template v-for="(item, index) in osMenuItems">
           <v-divider v-if='item.isDivider' :key="index" />
+          <v-list-item v-else-if='item.app' :key="index" @click="$router.showApp(item.app.path)">
+            <v-list-item-title>{{ item.app.name }}</v-list-item-title>
+          </v-list-item>
           <v-list-item v-else :key="index" @click="doSomething">
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
@@ -20,6 +23,9 @@
       <v-list>
         <template v-for="(item, index) in appMenuItems">
           <v-divider v-if='item.isDivider' :key="index" />
+          <v-list-item v-else-if='item.app' :key="index" @click="$router.showApp(item.app.path)">
+            <v-list-item-title>{{ item.app.name }}</v-list-item-title>
+          </v-list-item>
           <v-list-item v-else :key="index" @click="doSomething">
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
@@ -54,20 +60,24 @@
 </template>
 
 <script>
-import * as icons from '@/utils/icons'
-import * as dateUtils from '@/utils/date-utils'
+import apps from '@/utils/apps'
+import dateUtils from '@/utils/date-utils'
+import icons from '@/utils/icons'
 
 export default {
   name: 'AppMenuBar',
   data: () => ({
     osMenuItems: [
       { title: 'Apps >', action: '' },
-      { title: 'Text Editor', action: 'goToTextEditor' },
-      { title: 'Notes', action: 'goToNotes' },
-      { title: 'Browser', action: 'goToBrowser' },
-      { title: 'Email', action: 'goToEmail' },
+      { app: apps.bookmarks },
+      { app: apps.browser },
+      { app: apps.email },
+      { app: apps.learn },
+      { app: apps.notes },
+      { app: apps.textEditor },
       { isDivider: true },
-      { title: 'Settings', action: 'goToSettings' },
+      { app: apps.shortcuts },
+      { app: apps.settings },
       { isDivider: true },
       { title: 'Change Profile...', action: 'osChangeProfile' },
       { title: 'Sign Out', action: 'osSignOut' }

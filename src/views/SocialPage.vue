@@ -1,13 +1,13 @@
 <template>
   <v-col>
     <!-- Toolbar -->
-    <p>TODO: Games, maybe</p>
+    <p>TODO: Social, maybe</p>
   </v-col>
 </template>
 
 <script>
 export default {
-  name: 'GamesPage'
+  name: 'SocialPage'
 }
 </script>
 

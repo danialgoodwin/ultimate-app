@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import * as icons from '@/utils/icons'
+import icons from '@/utils/icons'
 
 export default {
   name: 'NotesCard',

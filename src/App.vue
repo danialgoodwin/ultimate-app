@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <app-menu-bar />
-    <!--<app-menu-bar v-if='{this.$router.currentRoute.showBreadcrumbs}'/>-->
     <app-bar/>
     <v-content>
       <v-container>
@@ -18,13 +17,9 @@ import AppMenuBar from '@/components/os/MenuBar.vue'
 
 export default Vue.extend({
   name: 'App',
-
   components: {
     AppMenuBar,
     AppBar
-  },
-
-  data: () => ({
-  })
+  }
 })
 </script>

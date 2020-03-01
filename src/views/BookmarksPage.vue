@@ -1,5 +1,4 @@
 <!--TODO: Use https://vuetifyjs.com/en/components/treeview-->
-
 <template>
   <div>
     <h1>Bookmarks</h1>

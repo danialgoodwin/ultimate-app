@@ -33,7 +33,7 @@
 
 <script>
 import NotesCard from '@/components/NotesCard'
-import * as icons from '@/utils/icons'
+import icons from '@/utils/icons'
 import DanFab from '@/components/dan-fab'
 
 const iconKeyboard = icons.keyboard

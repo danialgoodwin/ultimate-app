@@ -36,7 +36,7 @@
 import Vue from 'vue'
 import TodoPage from '@/components/TodoPage.vue'
 import NotesPage from '@/views/NotesPage.vue'
-import * as icons from '@/utils/icons'
+import icons from '@/utils/icons'
 import DanFab from '@/components/dan-fab.vue'
 
 export default Vue.extend({
