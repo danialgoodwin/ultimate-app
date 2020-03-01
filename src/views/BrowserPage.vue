@@ -1,5 +1,9 @@
 <template>
-  <div>BrowserPage</div>
+  <div>
+    <h1>BrowserPage</h1>
+    <p>For files and websites.</p>
+    <p>WIP</p>
+  </div>
 </template>
 
 <script>

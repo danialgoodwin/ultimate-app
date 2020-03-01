@@ -5,6 +5,7 @@
 
 ### Features TODO
 - System-wide identity and profiles
+- SRL: Spaced Repetition Learning
 
 ### Integrations
 - Firebase: https://console.firebase.google.com/project/ultimate-os-app/overview
@@ -55,6 +56,8 @@ Naming:
 - I don't always need to see the URL and action buttons, but it will likely be good to see the ____
 
 ### Removed features (at least for now)
+- SocialPage. Reason: Not MVP
+- BrowserPage. Reason: Not MVP
 - IdePage. Reason: Most actions can go into TextEditorPage, and there is plenty else to do.
 - MediaPage. Reason: Not interested now, and don't really have a great idea for it yet.
 

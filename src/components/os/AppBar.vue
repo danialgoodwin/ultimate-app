@@ -6,11 +6,7 @@
           <template v-for="(item, index) in appItems">
             <v-tooltip right :key="index">
               <template v-slot:activator="{ on }">
-                <v-list-item
-                  v-shortkey="['alt', index + 1]"
-                  @shortkey='item.action()'
-                  @click='item.action()'
-                  v-on="on"
+                <v-list-item v-shortkey="['alt', index + 1]" @shortkey='item.action()' @click='item.action()' v-on="on"
                   :class="$router.currentRoute.path === item.route ? 'selected-app' : ''"
                 >
                   <v-list-item-action><v-icon>{{ item.icon }}</v-icon></v-list-item-action>
@@ -25,8 +21,7 @@
         </v-list>
       </div>
     </v-navigation-drawer>
-    <v-menu v-model="isAppBarMenuVisibleModel" :position-x="x" :position-y="y" absolute offset-x
-            :close-on-content-click="false">
+    <v-menu v-model="isAppBarMenuVisibleModel" :position-x="x" :position-y="y" absolute offset-x :close-on-content-click="false">
       <v-list>
         <v-list-item v-for="(item, index) in menuItems" :key="index" @click="doSomething">
           <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -85,13 +80,21 @@ export default {
         }
       },
       {
-        title: 'Social',
-        icon: icons.social,
-        route: '/social',
+        title: 'Learn',
+        icon: icons.learn,
+        route: '/learn',
         action: () => {
-          routerMixins.methods.goToSocial()
+          routerMixins.methods.goToLearn()
         }
       },
+      // {
+      //   title: 'Social',
+      //   icon: icons.social,
+      //   route: '/social',
+      //   action: () => {
+      //     routerMixins.methods.goToSocial()
+      //   }
+      // },
       {
         title: 'All Apps',
         icon: icons.allApps,
@@ -113,7 +116,8 @@ export default {
       }
     ],
     x: 0,
-    y: 0
+    y: 0,
+    mini: true
   }),
   computed: {
   },

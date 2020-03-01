@@ -5,6 +5,7 @@ export const browser = 'fad fa-browser'
 export const calendar = 'fad fa-calendar-alt'
 // Maybe 'far house-day' or 'far house-night' for fun depending on time of day
 export const home = 'fad fa-home' // 'far fa-igloo' maybe for 'winter' theme :p
+export const learn = 'fad fa-school'
 export const notes = 'fad fa-sticky-note'
 export const social = 'fad fa-comments'
 export const textEditor = 'fad fa-file-alt'

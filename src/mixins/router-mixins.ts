@@ -2,26 +2,29 @@ import router from '@/router'
 
 export const routerMixins = {
   methods: {
-    goToTextEditor: () => {
-      router.replace({ path: '/text' })
+    goToAllApps () {
+      router.replace({ path: '/all' })
     },
     goToBrowser () {
       router.replace({ path: '/browser' })
     },
-    goToNotes () {
-      router.replace({ path: '/notes' })
-    },
     goToCalendar () {
       router.replace({ path: '/calendar' })
+    },
+    goToHome () {
+      router.replace({ path: '/' })
+    },
+    goToLearn () {
+      router.replace({ path: '/learn' })
+    },
+    goToNotes () {
+      router.replace({ path: '/notes' })
     },
     goToSocial () {
       router.replace({ path: '/social' })
     },
-    goToAllApps () {
-      router.replace({ path: '/all' })
-    },
-    goToHome () {
-      router.replace({ path: '/' })
+    goToTextEditor: () => {
+      router.replace({ path: '/text' })
     }
   }
 }

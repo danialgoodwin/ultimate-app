@@ -1,7 +1,7 @@
-<!--TODO: Include dates, events, weather-->
-
 <template>
-  <div>SocialPage</div>
+  <v-col>
+    <!-- Toolbar -->
+  </v-col>
 </template>
 
 <script>
