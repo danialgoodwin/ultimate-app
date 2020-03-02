@@ -27,7 +27,7 @@ With npm:
     # Run tests
     npm run test:unit
     
-    # Compile and minify for production
+    # Compile and minify for productionA
     npm run build
 
 With Firebase:

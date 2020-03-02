@@ -44,9 +44,4 @@ export const router = new VueRouter({
   routes
 })
 
-export default {
-  router,
-  showApp (path: string) {
-    router.replace({ path: path })
-  }
-}
+export default router

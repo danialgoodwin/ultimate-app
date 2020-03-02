@@ -6,7 +6,7 @@
           <template v-for="(appItem, index) in appItems">
             <v-tooltip right :key="index" transition="slide-x-transition" close-delay='100'>
               <template v-slot:activator="{ on }">
-                <v-list-item v-shortkey="['alt', index + 1]" @shortkey='$router.showApp(appItem.app.path)' @click='$router.showApp(appItem.app.path)'
+                <v-list-item v-shortkey="['alt', index + 1]" @shortkey='showApp(appItem.app)'
                     v-on="on" :to='appItem.app.path' exact link
                 >
                   <v-list-item-icon><v-spacer/><v-icon>{{ appItem.app.icon }}</v-icon><v-spacer/></v-list-item-icon>
@@ -31,18 +31,20 @@
 </template>
 
 <script>
+import appRouter from '@/router/app-router'
 import apps from '@/utils/apps'
 
 export default {
   name: 'AppBar',
   data: () => ({
     appItems: [
-      { app: apps.browser },
-      { app: apps.calendar },
-      { app: apps.learn },
-      { app: apps.notes },
+      { app: apps.home },
       { app: apps.terminal },
-      { app: apps.textEditor }
+      { app: apps.notes },
+      { app: apps.textEditor },
+      { app: apps.browser },
+      { app: apps.learn },
+      { app: apps.calendar }
     ],
     isAppBarMenuVisibleModel: false,
     menuItems: [
@@ -57,6 +59,9 @@ export default {
   methods: {
     doSomething: () => {
       console.log('doSomething()')
+    },
+    showApp (app) {
+      appRouter.showApp(app.path)
     },
     showAppBarRightClickMenu (e) {
       e.preventDefault()

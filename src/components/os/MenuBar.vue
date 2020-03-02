@@ -7,7 +7,7 @@
       <v-list>
         <template v-for="(item, index) in osMenuItems">
           <v-divider v-if='item.isDivider' :key="index" />
-          <v-list-item v-else-if='item.app' :key="index" @click="$router.showApp(item.app.path)">
+          <v-list-item v-else-if='item.app' :key="index" @click="showApp(item.app)">
             <v-list-item-title>{{ item.app.name }}</v-list-item-title>
           </v-list-item>
           <v-list-item v-else :key="index" @click="doSomething">
@@ -23,7 +23,7 @@
       <v-list>
         <template v-for="(item, index) in appMenuItems">
           <v-divider v-if='item.isDivider' :key="index" />
-          <v-list-item v-else-if='item.app' :key="index" @click="$router.showApp(item.app.path)">
+          <v-list-item v-else-if='item.app' :key="index" @click="showApp(item.app)">
             <v-list-item-title>{{ item.app.name }}</v-list-item-title>
           </v-list-item>
           <v-list-item v-else :key="index" @click="doSomething">
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import appRouter from '@/router/app-router'
 import apps from '@/utils/apps'
 import dateUtils from '@/utils/date-utils'
 import icons from '@/utils/icons'
@@ -103,6 +104,9 @@ export default {
   methods: {
     doSomething () {
       console.log('doSomething()')
+    },
+    showApp (app) {
+      appRouter.showApp(app.path)
     },
     updateCurrentDateTime () {
       this.currentDateTime = dateUtils.formatAsUserDateHourMinute(new Date())
