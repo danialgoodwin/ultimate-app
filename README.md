@@ -6,6 +6,8 @@
 ### Features TODO
 - System-wide identity and profiles
 - SRL: Spaced Repetition Learning
+- 'Quantified Self' page
+    - Maybe dedicated sections: Sleep hours, weight, body temperature, ...
 
 ### Integrations
 - Firebase: https://console.firebase.google.com/project/ultimate-os-app/overview
