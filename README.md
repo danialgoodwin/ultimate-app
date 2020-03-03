@@ -8,6 +8,7 @@
 - SRL: Spaced Repetition Learning
 - 'Quantified Self' page
     - Maybe dedicated sections: Sleep hours, weight, body temperature, ...
+- Daily journal (or, daily learnings) page
 
 ### Integrations
 - Firebase: https://console.firebase.google.com/project/ultimate-os-app/overview
