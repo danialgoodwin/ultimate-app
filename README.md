@@ -8,6 +8,7 @@
 - SRL: Spaced Repetition Learning
 - 'Quantified Self' page
     - Maybe dedicated sections: Sleep hours, weight, body temperature, ...
+    - Maybe (optionally) combine into the calendar page.
 - Daily journal (or, daily learnings) page
 
 ### Integrations
@@ -63,6 +64,7 @@ Naming:
 - BrowserPage. Reason: Not MVP
 - IdePage. Reason: Most actions can go into TextEditorPage, and there is plenty else to do.
 - MediaPage. Reason: Not interested now, and don't really have a great idea for it yet.
+- PersonalWikiPage. Reason: Not MVP
 
 
 ## Resources
