@@ -1,37 +1,7 @@
 <template>
   <v-system-bar app window lights-out>
-    <v-menu offset-y open-on-hover transition="scale-transition">
-      <template v-slot:activator="{ on }">
-        <v-btn color="secondary" v-on="on" text tile>OS</v-btn>
-      </template>
-      <v-list>
-        <template v-for="(item, index) in osMenuItems">
-          <v-divider v-if='item.isDivider' :key="index" />
-          <v-list-item v-else-if='item.app' :key="index" @click="showApp(item.app)">
-            <v-list-item-title>{{ item.app.name }}</v-list-item-title>
-          </v-list-item>
-          <v-list-item v-else :key="index" @click="doSomething">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </template>
-      </v-list>
-    </v-menu>
-    <v-menu offset-y open-on-hover transition="scale-transition">
-      <template v-slot:activator="{ on }">
-        <v-btn color="secondary" v-on="on" text tile>App</v-btn>
-      </template>
-      <v-list>
-        <template v-for="(item, index) in appMenuItems">
-          <v-divider v-if='item.isDivider' :key="index" />
-          <v-list-item v-else-if='item.app' :key="index" @click="showApp(item.app)">
-            <v-list-item-title>{{ item.app.name }}</v-list-item-title>
-          </v-list-item>
-          <v-list-item v-else :key="index" @click="doSomething">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </template>
-      </v-list>
-    </v-menu>
+    <dan-menu name='OS' :menu-items='osMenuItems' @dan-menu-click='onMenuItemClick' />
+    <dan-menu name='App' :menu-items='appMenuItems' @dan-menu-click='onMenuItemClick' />
     <v-spacer />
     <span>File: /users/dan/workspace-npm/ultimate-app</span>
     <v-spacer />
@@ -64,49 +34,90 @@ import appRouter from '@/router/app-router'
 import apps from '@/utils/apps'
 import dateUtils from '@/utils/date-utils'
 import icons from '@/utils/icons'
+import DanMenu from '@/components/dan-menu'
 
 export default {
   name: 'AppMenuBar',
+  components: { DanMenu },
   data: () => ({
     osMenuItems: [
-      { title: 'Apps >', action: '' },
-      { app: apps.bookmarks },
-      { app: apps.browser },
-      { app: apps.email },
-      { app: apps.learn },
-      { app: apps.notes },
-      { app: apps.textEditor },
+      {
+        name: 'Apps',
+        menu: [
+          { name: apps.bookmarks.name, app: apps.bookmarks },
+          { name: apps.browser.name, app: apps.browser },
+          { name: apps.email.name, app: apps.email },
+          { name: apps.learn.name, app: apps.learn },
+          { name: apps.notes.name, app: apps.notes },
+          { name: apps.textEditor.name, app: apps.textEditor },
+          {
+            name: 'System 1',
+            menu: [
+              { name: apps.bookmarks.name, app: apps.bookmarks },
+              { name: apps.bookmarks.name, app: apps.bookmarks },
+              { name: apps.bookmarks.name, app: apps.bookmarks },
+              {
+                name: 'System 2',
+                menu: [
+                  { name: apps.bookmarks.name, app: apps.bookmarks },
+                  { name: apps.bookmarks.name, app: apps.bookmarks },
+                  { name: apps.bookmarks.name, app: apps.bookmarks },
+                  {
+                    name: 'System 3',
+                    menu: [
+                      { name: apps.bookmarks.name, app: apps.bookmarks },
+                      { name: apps.bookmarks.name, app: apps.bookmarks },
+                      { name: apps.bookmarks.name, app: apps.bookmarks },
+                      {
+                        name: 'System 4',
+                        menu: [
+                          { name: apps.bookmarks.name, app: apps.bookmarks },
+                          { name: apps.bookmarks.name, app: apps.bookmarks },
+                          { name: apps.bookmarks.name, app: apps.bookmarks }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       { isDivider: true },
-      { app: apps.shortcuts },
-      { app: apps.settings },
+      { name: apps.shortcuts.name, app: apps.shortcuts },
+      { name: apps.settings.name, app: apps.settings },
       { isDivider: true },
-      { title: 'Change Profile...', action: 'osChangeProfile' },
-      { title: 'Sign Out', action: 'osSignOut' }
+      { name: 'Change Profile...', action: () => { console.log('osChangeProfile') } },
+      { name: 'Sign Out', action: () => { console.log('osSignOut') } }
     ],
     appMenuItems: [
-      { title: 'New', action: '' },
-      { title: 'Open...', action: '' },
-      { title: 'Save', action: '' },
-      { title: 'Save As...', action: '' },
+      { name: 'New', action: () => { console.log('new') } },
+      { name: 'Open...', action: () => { console.log('open') } },
+      { name: 'Save', action: () => { console.log('save') } },
+      { name: 'Save As...', action: () => { console.log('save-as') } },
       { isDivider: true },
-      { title: 'Edit >', action: '' },
-      { title: 'Search', action: '' },
+      { name: 'Edit >', action: () => { console.log('edit') } },
+      { name: 'Search', action: () => { console.log('search') } },
       { isDivider: true },
-      { title: 'Minimize', action: '' },
-      { title: 'Maximize', action: '' },
+      { name: 'Minimize', action: () => { console.log('minimize') } },
+      { name: 'Maximize', action: () => { console.log('maximize') } },
       { isDivider: true },
-      { title: 'Quit', action: '' }
+      { name: 'Close', action: () => { console.log('close') } }
     ],
     iconBatteryFull: icons.batteryFull,
     iconWifi: icons.wifi,
     currentDateTime: ''
   }),
   methods: {
-    doSomething () {
-      console.log('doSomething()')
-    },
-    showApp (app) {
-      appRouter.showApp(app.path)
+    onMenuItemClick (item) {
+      console.log(`onMenuItemClick(), item=${item}`)
+      if (item.app) {
+        appRouter.showApp(item.app.path)
+      } else if (item.action) {
+        console.log(`    item.action()=${item}`)
+        item.action()
+      }
     },
     updateCurrentDateTime () {
       this.currentDateTime = dateUtils.formatAsUserDateHourMinute(new Date())
