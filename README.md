@@ -59,6 +59,17 @@ Naming:
 - I don't always need to see all the tabs I have open. Maybe only one for the current song title and artist, or that could be put in the status bar, or it could be a temporary (5 sec?) small popup
 - I don't always need to see the URL and action buttons, but it will likely be good to see the ____
 
+### One tool to organize life
+- Messages (emails, texts)
+- Events/Appointments, and scheduler
+- notes (todos, wiki, recipes, shopping list, contacts, insurance info, health, bookmarks, religion)
+- browser (files, internet)
+- crypto wallet, bank
+- motivation/streaks/inspiration
+
+Not organizational?
+- Games? Maybe just group this in the 'internet' section?
+
 ### Removed features (at least for now)
 - SocialPage. Reason: Not MVP
 - BrowserPage. Reason: Not MVP
