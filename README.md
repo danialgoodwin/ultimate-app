@@ -10,6 +10,7 @@
     - Maybe dedicated sections: Sleep hours, weight, body temperature, ...
     - Maybe (optionally) combine into the calendar page.
 - Daily journal (or, daily learnings) page
+- Ultimate app keeps track of email and doesn't share with other sites, but instead provides a different address for each site, which can change to ensure real privacy. Aka, unique email for all websites and apps.
 
 ### Integrations
 - Firebase: https://console.firebase.google.com/project/ultimate-os-app/overview
