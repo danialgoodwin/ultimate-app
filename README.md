@@ -59,6 +59,7 @@ Naming:
 - Menus should appear 'on-hover'. Reason: The next most likely action will be opening the menu, and we can save that click.
 - I don't always need to see all the tabs I have open. Maybe only one for the current song title and artist, or that could be put in the status bar, or it could be a temporary (5 sec?) small popup
 - I don't always need to see the URL and action buttons, but it will likely be good to see the ____
+- It should not be possible for an IDE and code to be out-of-sync with whatever libraries they are both using. For example. They can get out-of-sync for the particular programming language being used. The IDE doesn't read the dependencies for the project.
 
 ### One tool to organize life
 - Messages (emails, texts)
