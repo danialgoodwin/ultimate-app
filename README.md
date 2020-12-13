@@ -53,6 +53,11 @@ Naming:
     - StatusBar: Contains status for a single app
     - MenuApp: Contains menu for a single app
 
+### Guidelines
+- If a user explicitly opens something, then they should explicity close it.
+  - Example: Drop-down for bookmarks bar: Don't close when right-click editing. Close after selection or clicking away. Reason: I want to do multiple edits without having to navigate to it each time (easier for a few rather than going to a bookmarks manager).
+  - Example: OS calendar: Don't close when clicking away. Close when clicking on the same icon/button that opens it. Reason: I want to reference it when using other apps.
+  - Counter-example: ???
 
 ### Thoughts
 - Apps don't need to say their name. Reason: It should be obvious based on context.
