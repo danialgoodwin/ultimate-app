@@ -65,6 +65,10 @@ Naming:
 - I don't always need to see all the tabs I have open. Maybe only one for the current song title and artist, or that could be put in the status bar, or it could be a temporary (5 sec?) small popup
 - I don't always need to see the URL and action buttons, but it will likely be good to see the ____
 - It should not be possible for an IDE and code to be out-of-sync with whatever libraries they are both using. For example. They can get out-of-sync for the particular programming language being used. The IDE doesn't read the dependencies for the project.
+- The ultimate browser may provide the ability to create and host new websites and buy domain names.
+    - Users could explicitly configure the page to be extendable or not? Meh
+    - Similarly, users should be able to easily create browser extensions in the browser.
+- The app/browser's setup could have a slider for security versus convenience. Maybe the users can't slide it. Never mind, users can slide it and there should be check boxes.
 
 ### One tool to organize life
 - Messages (emails, texts)
