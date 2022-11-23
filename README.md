@@ -69,6 +69,7 @@ Naming:
     - Users could explicitly configure the page to be extendable or not? Meh
     - Similarly, users should be able to easily create browser extensions in the browser.
 - The app/browser's setup could have a slider for security versus convenience. Maybe the users can't slide it. Never mind, users can slide it and there should be check boxes.
+- Want: Ability to sort bookmarks by time. For example, I currently want to see the latest bookmarks I added to find a specific one... not sure where I saved it to or what keywords to search for, but I know it was done recently.
 
 ### One tool to organize life
 - Messages (emails, texts)
